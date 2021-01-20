@@ -1,15 +1,38 @@
 from PIL import Image, ImageDraw, ImageFont
-
 import math
+import getopt
+import sys
+
+arguments = sys.argv[1:]
+args_s = "o:s:"
+args_l = ["output=", "scaleFactor="]
+
+try:
+    args, vals = getopt.getopt(arguments, args_s, args_l)
+except getopt.error as err:
+    print (str(err))
+    sys.exit(2)
+
+scaleFactor = 0.8
+out_file = "output.jpg"
+
+for arg, val in args:
+    if arg in ("-o", "--output"):
+        out_file = val
+    elif arg in ("-s", "--scaleFactor"):
+        scaleFactor = float(val)
+
+if not vals:
+    print("Please provide an input image!")
+    exit(1)
+
+input_file = vals[0]
 
 chars = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
 # chars = "#Wo- "[::-1]
 charArray = list(chars)
 charLength = len(charArray)
 interval = charLength/256
-
-# 2 > 4 > 6 > 8
-scaleFactor = 0.8
 
 oneCharWidth = 6
 oneCharHeight = 8
@@ -19,7 +42,7 @@ def getChar(inputInt):
 
 #text_file = open("Output.txt", "w")
 
-im = Image.open("img_input/input_.jpg")
+im = Image.open(input_file)
 
 fnt = ImageFont.truetype('font/Lucon.ttf', 10)
 
@@ -41,4 +64,4 @@ for i in range(height):
 
     #text_file.write('\n')
 
-outputImage.save(f'img_output/ascii_art__SF-{str(scaleFactor)}.png')
+outputImage.save(out_file)
