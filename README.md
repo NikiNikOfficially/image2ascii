@@ -1,5 +1,10 @@
 # image2ascii
 
+Example image
+<p align="center">
+ <img src="https://raw.githubusercontent.com/NikiNikOfficially/image2ascii/main/git_imgs/ascii_art__SF-0.8.png" width="120" height="120">
+</p>
+
 ```
 Usage:
 
@@ -11,3 +16,4 @@ Options:
 
  -t, --text 			Outputs as a Textfile
 ```
+***trasnparent images are not supportet***
