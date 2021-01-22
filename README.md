@@ -15,5 +15,7 @@ Options:
  -s, --scaleFactor FLOAT 	Scaling Factor of the Characters (Default: 0.8)
 
  -t, --text 			Outputs as a Textfile
+
+ -b, --background COLOR		Changes Background Color (Example: 142,78,255)
 ```
 ***trasnparent images are not supportet***
