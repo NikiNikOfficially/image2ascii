@@ -18,4 +18,3 @@ Options:
 
  -b, --background COLOR		Changes Background Color (Example: 142,78,255)
 ```
-***trasnparent images are not supportet***
